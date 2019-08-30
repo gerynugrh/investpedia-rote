@@ -97,13 +97,15 @@
         </table>
     </div> -->
 
+    <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"
         integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
         crossorigin="anonymous"></script>
     <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
-    <script src="liff-starter.js"></script>
+    <!-- <script src="liff-starter.js"></script> -->
 
     <script>
+        var myNumeral = numeral(1000);
         let response = {
             payload: [
                 {
@@ -315,17 +317,19 @@
                 }
             ]
         }
-        console.log(response)
+
         response.payload.forEach((s) => {
             $("#list-card").append(
                 `<div class="cardContainer">
-                        <a class="cardLink" href="">
-                            <img class="cardImage" alt="/detail.html?"
+                        <a class="cardLink">
+                            <img class="cardImage"
                                 src="${s.ImageURL}" />
                         </a>
                         <div class="cardInfo">
                             <h1 class="cardName">${s.Name}</h1>
-                            <p class="cardPrice">Rp. ${s.Price}</p>
+                            <p class="cardPrice">Rp. ${numeral(s.Price).format('0,0')}</p>'
+                            
+                            <a href="/detail.html?i=${s.ID}"><button class="buyButton">Investasi Sekarang!!</button></a>
                         </div>
                     </div>`
             );

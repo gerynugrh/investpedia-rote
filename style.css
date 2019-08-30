@@ -21,7 +21,7 @@
 }
 
 .searchBoxWrapper {
-  width: 83%;
+  width: 80%;
   height: 40px;
   padding: 7.5px 7.5px 7.5px 0;
   display: inline-block;
@@ -116,18 +116,20 @@
   color: #000;
 }
 
-.productDetailWrap .buyButton {
-  position: relative;
+.buyButton {
   background-color: rgb(255, 87, 34);
   box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 24px 1px;
-  margin: 16px;
   padding: 16px;
   border-radius: 4px;
+  box-sizing: border-box;
   overflow: hidden;
   text-align: center;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1px;
   cursor: pointer;
   color: white;
-  width: 150px;
+  width: 87%;
   border: none;
 }
 
@@ -198,4 +200,51 @@
   position: relative;
   color: #000;
   margin-top: 8px;
+}
+
+/* Invest */
+#profileWrapper{
+    padding-top: 100px;
+    background: #42b549; 
+    padding-bottom: 32px;
+}
+
+.profileImage{
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.displaynamefield{
+    color: white;
+}
+
+body{
+    margin: 0;
+}
+
+#form{
+    padding: 32px;
+    font-size: 14px;
+    padding-bottom: 64px;
+}
+
+select{
+    margin-left: 24px;
+    padding: 16px;
+    font-size: 16px;
+    text-align: center;
+    width: 140px;
+    background-color: #efefef;
+    border: none;
+}
+
+#woInvest{
+    text-decoration: line-through;
+    margin-right: 8px;
+}
+#wiInvest{
+    color: rgb(255, 87, 34);
+    margin-right: 8px;
+    font-size: 18px;
+    font-weight: bold;
 }
