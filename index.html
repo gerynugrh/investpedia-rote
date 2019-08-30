@@ -2,10 +2,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tokopedia Lite</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css"
+        type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,600,600i,800,800i&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-    <div class="buttongroup">
+
+    <div class="headerWrapper">
+        <img class="headerLogo" alt="logo" src="assets/logo.png" />
+        <div class="searchBoxWrapper">
+            <div class="searchSubBox">
+                <input name="searchBox" placeholder="Cari di Tokopedia" />
+            </div>
+        </div>
+    </div>
+    <div class="searchWrapper" id="list-card">
+
+    </div>
+
+
+    <!-- <div class="buttongroup">
         <div class="buttonrow">
             <button id="openwindowbutton">Open Window</button>
             <button id="closewindowbutton">Close Window</button>
@@ -77,8 +95,244 @@
                 <td id="groupidfield"></td>
             </tr>
         </table>
-    </div>
-    
+    </div> -->
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+        integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
+        crossorigin="anonymous"></script>
     <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
     <script src="liff-starter.js"></script>
+
+    <script>
+        let response = {
+            payload: [
+                {
+                    ID: 2,
+                    CreatedAt: '2019-08-30T16:10:38.989013Z',
+                    UpdatedAt: '2019-08-30T16:10:38.989013Z',
+                    DeletedAt: null,
+                    Name: 'iPhone XS Max 64 GB',
+                    ImageURL: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-xs-max-gold-select-2018?wid=940&hei=1112&fmt=png-alpha&qlt=80&.v=1550795409154',
+                    Price: 21599000
+                },
+                {
+                    ID: 3,
+                    CreatedAt: '2019-08-30T16:11:29.514419Z',
+                    UpdatedAt: '2019-08-30T16:11:29.514419Z',
+                    DeletedAt: null,
+                    Name: 'iPhone XS Max 256 GB',
+                    ImageURL: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-xs-max-space-select-2018?wid=940&hei=1112&fmt=png-alpha&qlt=80&.v=1550795409906',
+                    Price: 24599000
+                },
+                {
+                    ID: 4,
+                    CreatedAt: '2019-08-30T16:12:41.25929Z',
+                    UpdatedAt: '2019-08-30T16:12:41.25929Z',
+                    DeletedAt: null,
+                    Name: 'iPhone X 256GB Silver',
+                    ImageURL: 'https://www.jagojet.com/media/catalog/product/cache/4/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/s/i/silver.png',
+                    Price: 16000000
+                },
+                {
+                    ID: 5,
+                    CreatedAt: '2019-08-30T16:14:28.461516Z',
+                    UpdatedAt: '2019-08-30T16:14:28.461516Z',
+                    DeletedAt: null,
+                    Name: 'iPhone XR 256GB Black',
+                    ImageURL: 'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/iphone-xr-black-select-201809?wid=940&hei=1112&fmt=png-alpha&qlt=80&.v=1551226038992',
+                    Price: 17699000
+                },
+                {
+                    ID: 6,
+                    CreatedAt: '2019-08-30T16:14:44.942415Z',
+                    UpdatedAt: '2019-08-30T16:14:44.942415Z',
+                    DeletedAt: null,
+                    Name: 'iPhone XR 256GB Black',
+                    ImageURL: 'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/iphone-xr-black-select-201809?wid=940&hei=1112&fmt=png-alpha&qlt=80&.v=1551226038992',
+                    Price: 18000000
+                },
+                {
+                    ID: 7,
+                    CreatedAt: '2019-08-30T16:15:45.436888Z',
+                    UpdatedAt: '2019-08-30T16:15:45.436888Z',
+                    DeletedAt: null,
+                    Name: 'iPhone XR 256GB Black',
+                    ImageURL: 'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/iphone-xr-black-select-201809?wid=940&hei=1112&fmt=png-alpha&qlt=80&.v=1551226038992',
+                    Price: 17999999
+                },
+                {
+                    ID: 8,
+                    CreatedAt: '2019-08-30T16:22:52.347597Z',
+                    UpdatedAt: '2019-08-30T16:22:52.347597Z',
+                    DeletedAt: null,
+                    Name: 'Macbook Pro 13 (Mid 2012) - i5 - 4GB - 500GB',
+                    ImageURL: 'https://ecs7.tokopedia.net/img/cache/700/product-1/2017/9/12/4579380/4579380_58087058-5c95-4271-a1dd-12ffdef9c2c8_2048_0.jpg',
+                    Price: 7100000
+                },
+                {
+                    ID: 9,
+                    CreatedAt: '2019-08-30T16:22:59.083798Z',
+                    UpdatedAt: '2019-08-30T16:22:59.083798Z',
+                    DeletedAt: null,
+                    Name: 'Macbook Pro 13 (Mid 2012) - i5 - 4GB - 500GB',
+                    ImageURL: 'https://ecs7.tokopedia.net/img/cache/700/product-1/2017/9/12/4579380/4579380_58087058-5c95-4271-a1dd-12ffdef9c2c8_2048_0.jpg',
+                    Price: 7000000
+                },
+                {
+                    ID: 10,
+                    CreatedAt: '2019-08-30T16:23:19.931314Z',
+                    UpdatedAt: '2019-08-30T16:23:19.931314Z',
+                    DeletedAt: null,
+                    Name: 'Macbook Pro 13 (Mid 2012) - i5 - 4GB - 500GB',
+                    ImageURL: 'https://ecs7.tokopedia.net/img/cache/700/product-1/2017/9/12/4579380/4579380_58087058-5c95-4271-a1dd-12ffdef9c2c8_2048_0.jpg',
+                    Price: 6999999
+                },
+                {
+                    ID: 11,
+                    CreatedAt: '2019-08-30T16:25:01.920214Z',
+                    UpdatedAt: '2019-08-30T16:25:01.920214Z',
+                    DeletedAt: null,
+                    Name: 'Alienware 17 R5 Gaming Laptop',
+                    ImageURL: 'https://images-na.ssl-images-amazon.com/images/I/41QMSKiDZBL._SX466_.jpg',
+                    Price: 40000000
+                },
+                {
+                    ID: 12,
+                    CreatedAt: '2019-08-30T16:27:30.991368Z',
+                    UpdatedAt: '2019-08-30T16:27:30.991368Z',
+                    DeletedAt: null,
+                    Name: 'Alienware 17 R4 no. 1 Gaming i7 w/ GDDR5X 1080',
+                    ImageURL: 'https://ecs7.tokopedia.net/img/cache/700/product-1/2018/3/8/3431641/3431641_f95c4794-973b-4a3c-83fc-4dd2d3e23b2d_1200_789.jpg',
+                    Price: 37750000
+                },
+                {
+                    ID: 13,
+                    CreatedAt: '2019-08-30T16:33:07.657364Z',
+                    UpdatedAt: '2019-08-30T16:33:07.657364Z',
+                    DeletedAt: null,
+                    Name: 'TENDA CORDURA SAFARI CAMP',
+                    ImageURL: 'https://ecs7.tokopedia.net/img/cache/700/product-1/2017/3/11/130688553/130688553_9a15f26d-ed78-42fe-ad26-771fb5cb17c5_515_515.jpg',
+                    Price: 3750000
+                },
+                {
+                    ID: 14,
+                    CreatedAt: '2019-08-30T16:33:57.419702Z',
+                    UpdatedAt: '2019-08-30T16:33:57.419702Z',
+                    DeletedAt: null,
+                    Name: 'TENDA CORDURA SAFARI CAMP',
+                    ImageURL: 'https://ecs7.tokopedia.net/img/cache/700/product-1/2017/3/11/130688553/130688553_9a15f26d-ed78-42fe-ad26-771fb5cb17c5_515_515.jpg',
+                    Price: 3500000
+                },
+                {
+                    ID: 15,
+                    CreatedAt: '2019-08-30T16:36:24.034477Z',
+                    UpdatedAt: '2019-08-30T16:36:24.034477Z',
+                    DeletedAt: null,
+                    Name: 'Daihatsu Ayla',
+                    ImageURL: 'https://www.otomotifo.com/wp-content/uploads/2018/10/Gambar-Mobil-Termurah-di-Indonesia.jpg',
+                    Price: 100000000
+                },
+                {
+                    ID: 16,
+                    CreatedAt: '2019-08-30T16:36:33.467462Z',
+                    UpdatedAt: '2019-08-30T16:36:33.467462Z',
+                    DeletedAt: null,
+                    Name: 'Daihatsu Ayla',
+                    ImageURL: 'https://www.otomotifo.com/wp-content/uploads/2018/10/Gambar-Mobil-Termurah-di-Indonesia.jpg',
+                    Price: 120000000
+                },
+                {
+                    ID: 17,
+                    CreatedAt: '2019-08-30T16:36:40.41983Z',
+                    UpdatedAt: '2019-08-30T16:36:40.41983Z',
+                    DeletedAt: null,
+                    Name: 'Daihatsu Ayla',
+                    ImageURL: 'https://www.otomotifo.com/wp-content/uploads/2018/10/Gambar-Mobil-Termurah-di-Indonesia.jpg',
+                    Price: 122000000
+                },
+                {
+                    ID: 18,
+                    CreatedAt: '2019-08-30T16:36:48.499718Z',
+                    UpdatedAt: '2019-08-30T16:36:48.499718Z',
+                    DeletedAt: null,
+                    Name: 'Daihatsu Ayla',
+                    ImageURL: 'https://www.otomotifo.com/wp-content/uploads/2018/10/Gambar-Mobil-Termurah-di-Indonesia.jpg',
+                    Price: 99000000
+                },
+                {
+                    ID: 19,
+                    CreatedAt: '2019-08-30T16:37:04.387105Z',
+                    UpdatedAt: '2019-08-30T16:37:04.387105Z',
+                    DeletedAt: null,
+                    Name: 'Daihatsu Sigra',
+                    ImageURL: 'https://www.otomotifo.com/wp-content/uploads/2018/10/Gambar-Mobil-Termurah-di-Indonesia.jpg',
+                    Price: 120000000
+                },
+                {
+                    ID: 20,
+                    CreatedAt: '2019-08-30T16:37:12.486555Z',
+                    UpdatedAt: '2019-08-30T16:37:12.486555Z',
+                    DeletedAt: null,
+                    Name: 'Daihatsu Hi Max',
+                    ImageURL: 'https://www.otomotifo.com/wp-content/uploads/2018/10/Gambar-Mobil-Termurah-di-Indonesia.jpg',
+                    Price: 120000000
+                },
+                {
+                    ID: 21,
+                    CreatedAt: '2019-08-30T16:37:42.024294Z',
+                    UpdatedAt: '2019-08-30T16:37:42.024294Z',
+                    DeletedAt: null,
+                    Name: 'Daihatsu Gran Max',
+                    ImageURL: 'https://www.otomotifo.com/wp-content/uploads/2017/04/Harga-Mobil-Daihatasu-Gran-Max-Mini-Bus.jpg',
+                    Price: 160000000
+                },
+                {
+                    ID: 22,
+                    CreatedAt: '2019-08-30T16:38:08.476394Z',
+                    UpdatedAt: '2019-08-30T16:38:08.476394Z',
+                    DeletedAt: null,
+                    Name: 'Daihatsu Sirion',
+                    ImageURL: 'https://www.otomotifo.com/wp-content/uploads/2018/02/Harga-Daihatsu-Sirion-2018.jpg',
+                    Price: 176000000
+                },
+                {
+                    ID: 23,
+                    CreatedAt: '2019-08-30T16:38:14.759957Z',
+                    UpdatedAt: '2019-08-30T16:38:14.759957Z',
+                    DeletedAt: null,
+                    Name: 'Daihatsu Sirion',
+                    ImageURL: 'https://www.otomotifo.com/wp-content/uploads/2018/02/Harga-Daihatsu-Sirion-2018.jpg',
+                    Price: 190000000
+                },
+                {
+                    ID: 24,
+                    CreatedAt: '2019-08-30T16:40:08.136566Z',
+                    UpdatedAt: '2019-08-30T16:40:08.136566Z',
+                    DeletedAt: null,
+                    Name: 'Apple iPad Pro 3rd Gen 2018 11" inch Wifi Cellular 1TB Grey Silver',
+                    ImageURL: 'https://ecs7.tokopedia.net/img/cache/700/product-1/2019/7/22/5138814/5138814_649dce9d-e5d0-4f08-ab2b-1fc43d5c01d7_736_736',
+                    Price: 22100000
+                }
+            ]
+        }
+        console.log(response)
+        response.payload.forEach((s) => {
+            $("#list-card").append(
+                `<div class="cardContainer">
+                        <a class="cardLink" href="">
+                            <img class="cardImage" alt="/detail.html?"
+                                src="${s.ImageURL}" />
+                        </a>
+                        <div class="cardInfo">
+                            <h1 class="cardName">${s.Name}</h1>
+                            <p class="cardPrice">Rp. ${s.Price}</p>
+                        </div>
+                    </div>`
+            );
+        });
+
+
+    </script>
+
+    <!-- investpedia.herokuapp.com/products -->
 </body>
