@@ -33,8 +33,7 @@ function initializeApp(data) {
         if (profilePictureDiv.firstElementChild) {
             profilePictureDiv.removeChild(profilePictureDiv.firstElementChild);
         }
-        const img = $('#pprof');
-        img.src = profile.pictureUrl;
+        $('#pprof').attr("src", profile.pictureUrl)
 
     }).catch(function (error) {
         window.alert("Error getting profile: " + error);
